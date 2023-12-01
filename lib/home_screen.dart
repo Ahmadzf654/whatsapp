@@ -17,23 +17,24 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green.shade500,
           title: const Text(
             'WhatsApp',
-            style: TextStyle(fontFamily: 'IMFellFrenchCanonSC'),
+            style: TextStyle(fontFamily: 'IMFellFrenchCanonSC', color: Colors.white),
           ),
           bottom: const TabBar(
             tabs: [
               Tab(
-                child: Icon(Icons.camera_alt_outlined),
+                child: Icon(Icons.camera_alt_outlined,color: Colors.white,),
               ),
               Tab(
-                child: Text('Chats'),
+                child: Text('Chats',style: TextStyle(color: Colors.white),),
               ),
               Tab(
-                child: Text('Status'),
+                child: Text('Status',style: TextStyle(color: Colors.white),),
               ),
               Tab(
-                child: Text('Calls'),
+                child: Text('Calls',style: TextStyle(color: Colors.white),),
               ),
             ],
           ),
@@ -49,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             const SizedBox(width: 10),
+
           ],
+          iconTheme: IconThemeData(color: Colors.white),
         ),
         body: TabBarView(
           children: [
