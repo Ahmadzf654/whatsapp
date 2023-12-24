@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -10,9 +12,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedStatusIndex = -1;
+  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -39,7 +43,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           actions: [
-            const Icon(Icons.search),
+            GestureDetector(
+              onTap: (){
+
+                TextField(
+                  controller: SearchController(),
+                  decoration: const InputDecoration(
+                    hintText: 'Search',
+                    border: InputBorder.none,
+
+                  ),
+                  style:const TextStyle(
+                    color: Colors.white,
+                  ),
+                );
+              },
+                child: const Icon(Icons.search)),
             const SizedBox(width: 10),
             PopupMenuButton(
               icon: const Icon(Icons.more_horiz_outlined),
@@ -52,11 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(width: 10),
 
           ],
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
         ),
         body: TabBarView(
           children: [
-            const Text('Camera'),
+            Lottie.asset('assets/Animation - 1703402996718.json'),
             ListView.builder(
               itemCount: 100,
               itemBuilder: (context, index) {
